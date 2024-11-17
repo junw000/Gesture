@@ -21,17 +21,18 @@ ipcMain.handle('write-mappings', async (event, mappings) => {
 
 let mainWindow;
 let pythonProcess = null;
+let editWindow; // To keep track of the edit window
 
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 500,
     height: 400,
     resizable: false,
-    icon: process.platform === 'darwin' 
-    ? path.join(__dirname, 'assets', 'logo.icns') 
-    : process.platform === 'win32'
-    ? path.join(__dirname, 'assets', 'logo.ico') 
-    : path.join(__dirname, 'assets', 'logo.png'),
+    icon: process.platform === 'darwin'
+      ? path.join(__dirname, 'assets', 'logo.icns')
+      : process.platform === 'win32'
+      ? path.join(__dirname, 'assets', 'logo.ico')
+      : path.join(__dirname, 'assets', 'logo.png'),
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
@@ -58,9 +59,43 @@ function createWindow() {
     stopPythonProcess();
   });
 
+  // Open the Edit window when requested
+  ipcMain.on('open-edit-window', (event) => {
+    createEditWindow();
+  });
+
   // Ensure the Python process is terminated when the app is closed
   mainWindow.on('closed', () => {
     stopPythonProcess();
+  });
+}
+
+function createEditWindow() {
+  if (editWindow) {
+    editWindow.focus();
+    return;
+  }
+
+  editWindow = new BrowserWindow({
+    width: 800,
+    height: 200,
+    resizable: false,
+    icon: process.platform === 'darwin'
+      ? path.join(__dirname, 'assets', 'logo.icns')
+      : process.platform === 'win32'
+      ? path.join(__dirname, 'assets', 'logo.ico')
+      : path.join(__dirname, 'assets', 'logo.png'),
+    webPreferences: {
+      contextIsolation: false,
+      nodeIntegration: true,
+    },
+  });
+
+  editWindow.loadFile('edit.html');
+
+  // Handle closing the edit window
+  editWindow.on('closed', () => {
+    editWindow = null;
   });
 }
 

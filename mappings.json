@@ -5,11 +5,11 @@
   },
   "1": {
     "type": "bash",
-    "command": "open -a \"Google Chrome\" https://www.wisc.edu/"
+    "command": "open -a \"Google Chrome\" https://balashukla.com/"
   },
   "2": {
-    "type": "bash",
-    "command": ""
+    "type": "macros",
+    "command": "ctrl + right"
   },
   "3": {
     "type": "bash",
@@ -17,7 +17,7 @@
   },
   "4": {
     "type": "command",
-    "command": "rmdir TestFolder"
+    "command": "Screenshot"
   },
   "5": {
     "type": "macros",

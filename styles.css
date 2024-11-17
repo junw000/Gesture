@@ -107,3 +107,27 @@ body::before {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+body, html {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#main-container {
+  height: 100vh; /* Set the main container to be the full viewport height */
+}
+
+#sidebar {
+  width: 300px; /* Increased width for the sidebar */
+  height: 100%; /* Ensure the sidebar takes the full height */
+}
+
+.flex-fill {
+  height: 100%;
+}
+
+#gestureList {
+  list-style: none; /* Remove bullet points from the list */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}

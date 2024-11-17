@@ -1,7 +1,8 @@
 import json
 import os
 import subprocess
-# from Backend.app import get_gesture  # Assuming this exists and is implemented correctly
+import pyautogui
+import platform
 
 def get_gesture(number: int, gestures: dict):
     """
@@ -20,6 +21,24 @@ def load_gestures(file_path: str):
     except Exception as e:
         raise Exception(f"Error loading gestures or mappings: {e}")
 
+def activate_desktop():
+    """
+    Brings the desktop into focus based on the operating system.
+    """
+    os_name = platform.system().lower()
+
+    try:
+        if os_name == "windows":
+            pyautogui.hotkey('win', 'd')  # Minimize all windows
+        elif os_name == "darwin":  # macOS
+            pyautogui.hotkey('command', 'fn', 'f3')  # Adjust for your configuration
+        elif os_name == "linux":
+            pyautogui.hotkey('ctrl', 'alt', 'd')  # GNOME default
+        else:
+            raise OSError(f"Unsupported OS: {os_name}")
+        print("Desktop activated.")
+    except Exception as e:
+        print(f"Error activating desktop: {e}")
 
 def execute_task(number: int, mappings: dict):
     """
@@ -40,32 +59,23 @@ def execute_task(number: int, mappings: dict):
         case "macros":
             print(f"Simulating shortcut keys: {command}")
             try:
-                import pyautogui
-                import os
+                # Ensure the desktop environment is focused
+                activate_desktop()
 
-                # Define the specific folder where you want to save the screenshot
-                save_folder = r"C:\Users\Junwoo Lee\OneDrive\바탕 화면"
-
-                # Ensure the folder exists (if not, create it)
-                os.makedirs(save_folder, exist_ok=True)
-
-                # Define the full path to save the screenshot
-                save_path = os.path.join(save_folder, 'screenshot.png')
-
-                # Capture the screenshot
-                screenshot = pyautogui.screenshot()
-
-                # Save the screenshot to the specified path
-                screenshot.save(save_path)
-
+                # Parse and execute the key combination
+                keys = [key.strip() for key in command.lower().split("+")]
+                pyautogui.hotkey(*keys)
+                print(f"Shortcut keys {keys} executed.")
             except Exception as e:
                 print(f"Error simulating shortcut keys: {e}")
+
         case "command":
             print(f"Executing system command: {command}")
             try:
                 os.system(command)
             except Exception as e:
                 print(f"Error executing system command: {e}")
+
         case _:
             print(f"Unknown type or no action defined for type: {type}")
 
@@ -74,7 +84,6 @@ def getAction(id: int):
     Main function to handle user input and execute tasks.
     """
     # Load mappings from the JSON file
-    # TODO change after fixing mappings.json
     mappings_file = "./mappings.json"
     try:
         mappings = load_gestures(mappings_file)
@@ -96,5 +105,3 @@ def getAction(id: int):
         print("Invalid input. Please enter a valid number.")
     except Exception as e:
         print(f"Unexpected error: {e}")
-
-

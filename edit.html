@@ -1,4 +1,3 @@
-<!-- edit.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +9,19 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="d-flex">
+  <div id="main-container" class="d-flex vh-100">
     <!-- Sidebar -->
-    <div id="sidebar" class="bg-dark text-white p-3">
+    <div id="sidebar" class="bg-dark text-white p-3 d-flex flex-column h-100">
       <h4>Gestures</h4>
-      <ul class="list-unstyled" id="gestureList">
+      <ul class="list-unstyled flex-grow-1 overflow-auto" id="gestureList">
         <!-- Gesture items will be populated here -->
       </ul>
     </div>
     <!-- Main Content -->
-    <div class="flex-fill p-3">
+    <div class="flex-fill p-3 d-flex flex-column">
       <button id="backButton" class="btn btn-secondary mb-3">Back</button>
       <h4 id="gestureTitle">Select a Gesture</h4>
-      <div id="configArea">
+      <div id="configArea" class="flex-fill">
         <!-- Configuration options will appear here -->
       </div>
     </div>
