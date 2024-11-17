@@ -1,7 +1,7 @@
 # Gesture: Revolutionizing System Automation with Hand Gestures
 
 ## Introduction
-**Gesture** is a groundbreaking system that leverages hand gestures to automate computer functions, redefining human-computer interaction. Using cutting-edge technologies like **OpenCV**, **MediaPipe**, **Convolutional Neural Networks (CNN)**, and **Electron**, our application enables users to interact with their devices in a natural, intuitive, and customizable way.
+**Gesture** is a software that utilizes hand gesture detection using **Mediapipe**, which allows users to interact with their screen purely through the use of their hand signs. Users are capable of configuring their own options for what interaction each hand gesture will make 
 
 ---
 
