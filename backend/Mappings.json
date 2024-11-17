@@ -1,7 +1,7 @@
 {
   "0": {
     "type": "bash",
-    "command": "echo 'Hello from Bash'"
+    "command": "start chrome https://www.wisc.edu/"
   },
   "1": {
     "type": "command",

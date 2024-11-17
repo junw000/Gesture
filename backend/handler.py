@@ -41,7 +41,23 @@ def execute_task(number: int, mappings: dict):
             print(f"Simulating shortcut keys: {command}")
             try:
                 import pyautogui
-                pyautogui.hotkey(*command.split('+'))
+                import os
+
+                # Define the specific folder where you want to save the screenshot
+                save_folder = r"C:\Users\Junwoo Lee\OneDrive\바탕 화면"
+
+                # Ensure the folder exists (if not, create it)
+                os.makedirs(save_folder, exist_ok=True)
+
+                # Define the full path to save the screenshot
+                save_path = os.path.join(save_folder, 'screenshot.png')
+
+                # Capture the screenshot
+                screenshot = pyautogui.screenshot()
+
+                # Save the screenshot to the specified path
+                screenshot.save(save_path)
+
             except Exception as e:
                 print(f"Error simulating shortcut keys: {e}")
         case "command":
