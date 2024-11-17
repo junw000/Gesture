@@ -75,7 +75,7 @@ def getAction(id: int):
     """
     # Load mappings from the JSON file
     # TODO change after fixing mappings.json
-    mappings_file = "./backend/Mappings.json"
+    mappings_file = "./mappings.json"
     try:
         mappings = load_gestures(mappings_file)
         print(f"Loaded mappings: {mappings}")
