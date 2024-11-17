@@ -1,14 +1,6 @@
 {
-  "Thumbs Up": {
-    "type": "command",
-    "input": "Screenshot"
-  },
-  "Open": {
-    "type": "bash",
-    "input": "ls"
-  },
-  "Closed": {
+  "6": {
     "type": "macro",
-    "input": "cmd + c"
+    "input": ""
   }
 }

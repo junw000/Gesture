@@ -12,12 +12,13 @@ async function loadMappings() {
 loadMappings();
 
 const gestures = [
-  { name: 'Open', icon: '👍' },
-  { name: 'Closed', icon: '✊' },
-  { name: 'Ok', icon: '👌' },
-  { name: 'Pointer', icon: '👆' },
-  { name: 'Peace', icon: '✌️' },
-  { name: 'Thumbs Up', icon: '👍' },
+  { name: 'Open', icon: '👍' }, // 0
+  { name: 'Closed', icon: '✊' }, // 1
+  { name: 'Pointer', icon: '👆' }, // 2
+  { name: 'Ok', icon: '👌' }, // 3
+  { name: 'Peace', icon: '✌️' }, // 4
+  { name: 'Thumbs Up', icon: '👍' }, // 5
+  { name: 'Thumbs Down', icon: '👎' }, // 6
 ]; 
 
 const gestureList = document.getElementById('gestureList');
@@ -59,7 +60,36 @@ function showConfigOptions(gesture) {
     const actionType = document.getElementById('actionType').value;
     const actionInput = document.getElementById('actionInput').value;
 
-    saveGestureConfig(gesture.name, actionType, actionInput);
+
+    let gestureName = gesture.name;
+    switch (gestureName) {
+      case "Open":
+        numberValue = 0;
+        break;
+      case "Closed":
+        numberValue = 1;
+        break;
+      case "Pointer":
+        numberValue = 2;
+        break;
+      case "Ok":
+        numberValue = 3;
+        break;
+      case "Peace":
+        numberValue = 4;
+        break;
+      case "Thumbs Up":
+        numberValue = 5;
+        break;
+      case "Thumbs Down":
+        numberValue = 6;
+        break;
+      default:
+        numberValue = 0; 
+        break;
+    }
+
+    saveGestureConfig(String(numberValue), actionType, actionInput);
     alert('Configuration Saved!');
   });
 }
@@ -70,7 +100,6 @@ async function saveGestureConfig(name, type, input) {
     input: input,
   };
   await ipcRenderer.invoke('write-mappings', mappings);
-  alert('Configuration Saved!');
 }
 
 // Handle Back button
