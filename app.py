@@ -15,32 +15,31 @@ from model import KeyPointClassifier
 import json
 import subprocess
 
+import pyautogui
+import keyboard
+
 def action(id): 
 
-    with open('commands.json', 'r') as file: 
-        data = json.load(file)
+    # with open('commands.json', 'r') as file: 
+    #     commands = json.load(file)
 
-    if id == 0: 
-        # bash_command = data['0']
-        print("it works")
-    elif id == 1:
-        bash_command = data['1']
-    elif id == 2: 
-        bash_command = data['2']
-    elif id == 3:
-        bash_command = data['3']
-    elif id == 4: 
-        bash_command = data['4']
-    elif id == 5:
-        bash_command = data['5']
-    elif id == 6: 
-        bash_command = data['6']
-    elif id == 7:
-        bash_command = data['7']
-    elif id == 8: 
-        bash_command = data['8']
-    elif id == 9: 
-        bash_command = data['9']
+    # category, command = commands[str(id)]
+
+    # if category == "bash":
+    #     result = subprocess.run(command.split(), capture_output=True, text=True)
+    # elif category == "cmd":
+    #     result = subprocess.run(["cmd", "/c"] + command.split(), capture_output=True, text=True, shell=True)
+    # else:
+    #     print(keys)
+
+    #     keys = command.split("+")
+
+    #     for key in keys:
+    #         keyboard.press(key.strip())
+
+    #     for key in reversed(keys):
+    #         keyboard.release(key.strip())
+
 
     return
 
