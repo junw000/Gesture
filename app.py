@@ -103,7 +103,7 @@ def main():
                 else: 
                     count += 1
 
-                if count == 20: 
+                if count == 10: 
                     handler.getAction(hand_sign_id)
 
                 # Drawing part
