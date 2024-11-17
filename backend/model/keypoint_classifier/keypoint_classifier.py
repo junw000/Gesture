@@ -6,7 +6,7 @@ import tensorflow as tf
 class KeyPointClassifier(object):
     def __init__(
         self,
-        model_path='back/model/keypoint_classifier/keypoint_classifier.tflite',
+        model_path='backend/model/keypoint_classifier/keypoint_classifier.tflite',
         num_threads=1,
     ):
 

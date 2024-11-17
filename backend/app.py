@@ -36,7 +36,7 @@ def main():
     keypoint_classifier = KeyPointClassifier()
 
     # Read labels ###########################################################
-    with open('back/model/keypoint_classifier/keypoint_classifier_label.csv',
+    with open('backend/model/keypoint_classifier/keypoint_classifier_label.csv',
               encoding='utf-8-sig') as f:
         keypoint_classifier_labels = csv.reader(f)
         keypoint_classifier_labels = [
