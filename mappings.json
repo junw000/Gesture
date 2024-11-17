@@ -1,0 +1,42 @@
+{
+  "0": {
+    "type": "bash",
+    "command": "screencapture ./screenshot.png"
+  },
+  "1": {
+    "type": "bash",
+    "command": "open -a \"Google Chrome\" https://balashukla.com/"
+  },
+  "2": {
+    "type": "macros",
+    "command": "ctrl + right"
+  },
+  "3": {
+    "type": "bash",
+    "command": "mkdir TestFolder"
+  },
+  "4": {
+    "type": "command",
+    "command": "Screenshot"
+  },
+  "5": {
+    "type": "macros",
+    "command": "cmd + c"
+  },
+  "6": {
+    "type": "bash",
+    "command": "open -a \"Google Chrome\" https://www.wisc.edu/"
+  },
+  "7": {
+    "type": "command",
+    "command": "volume up"
+  },
+  "8": {
+    "type": "macros",
+    "command": "alt+tab"
+  },
+  "9": {
+    "type": "Bash",
+    "command": "echo 'Goodbye!'"
+  }
+}
