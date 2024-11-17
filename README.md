@@ -39,7 +39,7 @@ The system operates using a multi-stage pipeline:
 
 The flowchart below illustrates the pipeline:
 
-![flowchart](https://imgur.com/a/u34hjyz)
+(https://imgur.com/a/u34hjyz) 
 
 ---
 
