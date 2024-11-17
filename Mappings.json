@@ -1,0 +1,42 @@
+{
+  "0": {
+    "type": "bash",
+    "command": "echo 'Hello from Bash'"
+  },
+  "1": {
+    "type": "command",
+    "command": "dir"
+  },
+  "2": {
+    "type": "macros",
+    "command": "ctrl+alt+del"
+  },
+  "3": {
+    "type": "bash",
+    "command": "mkdir TestFolder"
+  },
+  "4": {
+    "type": "command",
+    "command": "rmdir TestFolder"
+  },
+  "5": {
+    "type": "macros",
+    "command": "cmd + c"
+  },
+  "6": {
+    "type": "bash",
+    "command": "touch test_file.txt"
+  },
+  "7": {
+    "type": "command",
+    "command": "volume up"
+  },
+  "8": {
+    "type": "macros",
+    "command": "alt+tab"
+  },
+  "9": {
+    "type": "Bash",
+    "command": "echo 'Goodbye!'"
+  }
+}

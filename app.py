@@ -2,46 +2,24 @@
 # -*- coding: utf-8 -*-
 import csv
 import copy
-import argparse
 import itertools
-from collections import Counter
-from collections import deque
 
 import cv2 as cv
 import numpy as np
 import mediapipe as mp
 
 from model import KeyPointClassifier
-import json
-import subprocess
 
-import pyautogui
-import keyboard
+import handler
 
-def action(id): 
+# def action(id): 
 
-    # with open('commands.json', 'r') as file: 
-    #     commands = json.load(file)
+#     main.main()
 
-    # category, command = commands[str(id)]
-
-    # if category == "bash":
-    #     result = subprocess.run(command.split(), capture_output=True, text=True)
-    # elif category == "cmd":
-    #     result = subprocess.run(["cmd", "/c"] + command.split(), capture_output=True, text=True, shell=True)
-    # else:
-    #     print(keys)
-
-    #     keys = command.split("+")
-
-    #     for key in keys:
-    #         keyboard.press(key.strip())
-
-    #     for key in reversed(keys):
-    #         keyboard.release(key.strip())
+    
 
 
-    return
+#     return
 
 def main():
 
@@ -125,8 +103,8 @@ def main():
                 else: 
                     count += 1
 
-                if count == 30: 
-                    action(hand_sign_id)
+                if count == 20: 
+                    handler.getAction(hand_sign_id)
 
                 # Drawing part
                 debug_image = draw_bounding_rect(use_brect, debug_image, brect)
