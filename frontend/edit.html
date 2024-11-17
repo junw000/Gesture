@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gesture - Edit</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-dark text-white p-3">
+      <h4>Gestures</h4>
+      <ul class="list-unstyled" id="gestureList">
+        <!-- Gesture items will be populated here -->
+      </ul>
+    </div>
+    <!-- Main Content -->
+    <div class="flex-fill p-3">
+      <h4 id="gestureTitle">Select a Gesture</h4>
+      <div id="configArea">
+        <!-- Configuration options will appear here -->
+      </div>
+    </div>
+  </div>
+  <button id="backButton" class="btn btn-secondary mb-3">Back</button>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"
+  ></script>
+  <!-- Custom JS -->
+  <script src="edit.js"></script>
+</body>
+</html>
