@@ -1,5 +1,7 @@
 # Gesture: Revolutionizing System Automation with Hand Gestures
 
+![Gesture](image.png)
+
 ## Introduction
 **Gesture** is a software that utilizes hand gesture detection using **Mediapipe**, which allows users to interact with their screen purely through the use of their hand signs. Users are capable of configuring their own options for what interaction each hand gesture will make 
 
@@ -12,6 +14,8 @@ Traditional input methods, such as keyboards and mice, can be limiting, especial
 - **Efficient**: Automates repetitive tasks in a fraction of the time.
 - **Customizable**: Users can assign their own commands to gestures.
 - **Accessible**: Designed to assist users with physical disabilities or those in environments where traditional input is impractical.
+
+![Gesture](appdemoscreenshot.png)
 
 ---
 
@@ -35,7 +39,7 @@ The system operates using a multi-stage pipeline:
 
 The flowchart below illustrates the pipeline:
 
-![Gesture System Pipeline](image.png)
+
 
 ---
 
