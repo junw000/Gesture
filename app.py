@@ -12,56 +12,54 @@ import numpy as np
 import mediapipe as mp
 
 from model import KeyPointClassifier
+import json
+import subprocess
 
+def action(id): 
 
-def get_args():
-    parser = argparse.ArgumentParser()
+    with open('commands.json', 'r') as file: 
+        data = json.load(file)
 
-    parser.add_argument("--device", type=int, default=0)
-    parser.add_argument("--width", help='cap width', type=int, default=960)
-    parser.add_argument("--height", help='cap height', type=int, default=540)
+    if id == 0: 
+        # bash_command = data['0']
+        print("it works")
+    elif id == 1:
+        bash_command = data['1']
+    elif id == 2: 
+        bash_command = data['2']
+    elif id == 3:
+        bash_command = data['3']
+    elif id == 4: 
+        bash_command = data['4']
+    elif id == 5:
+        bash_command = data['5']
+    elif id == 6: 
+        bash_command = data['6']
+    elif id == 7:
+        bash_command = data['7']
+    elif id == 8: 
+        bash_command = data['8']
+    elif id == 9: 
+        bash_command = data['9']
 
-    parser.add_argument('--use_static_image_mode', action='store_true')
-    parser.add_argument("--min_detection_confidence",
-                        help='min_detection_confidence',
-                        type=float,
-                        default=0.7)
-    parser.add_argument("--min_tracking_confidence",
-                        help='min_tracking_confidence',
-                        type=int,
-                        default=0.5)
-
-    args = parser.parse_args()
-
-    return args
-
+    return
 
 def main():
-    # Argument parsing #################################################################
-    args = get_args()
-
-    cap_device = args.device
-    cap_width = args.width
-    cap_height = args.height
-
-    use_static_image_mode = args.use_static_image_mode
-    min_detection_confidence = args.min_detection_confidence
-    min_tracking_confidence = args.min_tracking_confidence
 
     use_brect = True
 
     # Camera preparation ###############################################################
-    cap = cv.VideoCapture(cap_device)
-    cap.set(cv.CAP_PROP_FRAME_WIDTH, cap_width)
-    cap.set(cv.CAP_PROP_FRAME_HEIGHT, cap_height)
+    cap = cv.VideoCapture(0)
+    cap.set(cv.CAP_PROP_FRAME_WIDTH, 960)
+    cap.set(cv.CAP_PROP_FRAME_HEIGHT, 540)
 
     # Model load #############################################################
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(
-        static_image_mode=use_static_image_mode,
+        static_image_mode=True,
         max_num_hands=1,
-        min_detection_confidence=min_detection_confidence,
-        min_tracking_confidence=min_tracking_confidence,
+        min_detection_confidence=0.7,
+        min_tracking_confidence=0.5,
     )
 
     keypoint_classifier = KeyPointClassifier()
@@ -76,8 +74,10 @@ def main():
 
 
 
-    #  ########################################################################
     mode = 0
+    count = 0
+    curr_sign = -1
+
 
     while True:
 
@@ -120,8 +120,14 @@ def main():
                 # Hand sign classification
                 hand_sign_id = keypoint_classifier(pre_processed_landmark_list)
 
-                # Finger gesture classification
-                finger_gesture_id = 0
+                if curr_sign != hand_sign_id: 
+                    count = 0
+                    curr_sign = hand_sign_id
+                else: 
+                    count += 1
+
+                if count == 30: 
+                    action(hand_sign_id)
 
                 # Drawing part
                 debug_image = draw_bounding_rect(use_brect, debug_image, brect)
