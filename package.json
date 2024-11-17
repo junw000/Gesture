@@ -5,7 +5,24 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.yourdomain.yourappname",
+    "productName": "Gesture",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "icon": "assets/logo.icns"
+    },
+    "win": {
+      "icon": "assets/logo.ico"
+    },
+    "linux": {
+      "icon": "assets/logo.png"
+    }
   },
   "keywords": [],
   "author": "",
@@ -14,6 +31,7 @@
     "electron": "^33.2.0"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "electron-icon-maker": "^0.0.5"
   }
 }
