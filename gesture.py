@@ -8,7 +8,7 @@ import shutil
 # Paths for Hammerspoon configuration
 hammerspoon_dir = os.path.expanduser("~/.hammerspoon/")
 hammerspoon_init = os.path.join(hammerspoon_dir, "init.lua")
-local_hammerspoon_script = "hammerspoon_script.lua"  # Your Hammerspoon script path
+local_hammerspoon_script = "hammerspoon_script.lua" 
 
 # Copy the Hammerspoon script and reload Hammerspoon
 def setup_hammerspoon():
@@ -39,6 +39,7 @@ def execute_command(command):
 def handle_gesture(gesture, macros):
     if gesture in macros:
         command = macros[gesture]
+        print(f"Detected gesture: {gesture}, Executing command: {command}")
         execute_command(command)
     else:
         print(f"No macro assigned for gesture: {gesture}")

@@ -1,4 +1,4 @@
 {
-  "thumbs_up": "osascript -e 'open location \"hammerspoon://takeScreenshot\"'",
+  "thumbs_up": "osascript -e 'open location \"hammerspoon://nextWorkspace\"'",
   "thumbs_down": "osascript -e 'open location \"hammerspoon://previousSpace\"'"
 }

@@ -36,31 +36,21 @@ function switchToPreviousSpace()
     hs.alert.show("Previous Space", 0.5)
 end
 
--- Screenshot Function with Input Delay
-function takeScreenshotWithDelay(delaySeconds)
-  hs.alert.show("Taking screenshot in " .. delaySeconds .. " seconds...", 1)
-  hs.timer.doAfter(delaySeconds, function()
-      local timestamp = os.date("%Y-%m-%d at %H.%M.%S")
-      local screenshotPath = os.getenv("HOME") .. "/Desktop/Screen Shot " .. timestamp .. ".png"
-      local screencapturePath = "/usr/sbin/screencapture" -- Update this path as needed
-
-      local task = hs.task.new(screencapturePath, function(exitCode, stdOut, stdErr)
-          if exitCode == 0 then
-              hs.alert.show("Screenshot Saved to Desktop", 0.5)
-          else
-              hs.alert.show("Error Taking Screenshot: " .. stdErr, 2)
-              hs.console.printStyledtext("Error Taking Screenshot: " .. stdErr)
-          end
-      end, {"-x", screenshotPath})
-
-      task:start()
-  end)
+-- Screenshot Function without Delay using Cmd+Shift+3
+function takeScreenshot()
+    local script = 'tell application "System Events" to key code 20 using {command down, shift down}' -- 20 is the key code for "3"
+    local success, output, errorMsg = hs.osascript.applescript(script)
+    if success then
+        hs.alert.show("Screenshot Taken", 0.5)
+    else
+        hs.alert.show("Error Taking Screenshot: " .. errorMsg, 2)
+        hs.console.printStyledtext("Error Taking Screenshot: " .. errorMsg)
+    end
 end
 
-
--- Shortcut to Take Screenshot with Delay (e.g., 5 seconds)
+-- Hotkey to Take Screenshot Immediately
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "S", function()
-    takeScreenshotWithDelay(5) -- Change the number to set a different delay
+    takeScreenshot()
 end)
 
 -- Listen for AppleScript Commands to Trigger Hammerspoon Functions
@@ -72,5 +62,5 @@ hs.urlevent.bind("previousSpace", function() switchToPreviousSpace() end) -- For
 
 -- Bind the Screenshot Function to a URL Event for Gestures
 hs.urlevent.bind("takeScreenshot", function()
-    takeScreenshotWithDelay(5) -- Change the number to set a different delay for the gesture
+    takeScreenshot()
 end)
