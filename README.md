@@ -3,7 +3,7 @@
 ![Gesture](image.png)
 
 ## Introduction
-**Gesture** is a software that utilizes hand gesture detection using **Mediapipe**, which allows users to interact with their screen purely through the use of their hand signs. Users are capable of configuring their own options for what interaction each hand gesture will make 
+**Gesture** is a software that utilizes hand gesture detection using **Mediapipe**, which allows users to interact with their screen purely through the use of their hand signs. Users are capable of configuring their own options for what interaction each hand gesture will make. We utilized portions of the code from this [original repo](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe). Also some extra thanks to [this repo](https://github.com/kinivi/hand-gesture-recognition-mediapipe?tab=readme-ov-file) for translating to english. 
 
 ---
 
@@ -60,7 +60,7 @@ git clone https://github.com/junw000/Gesture.git
 
 # Install dependencies:
 cd Gesture
-pip install -r requirements.txt
+pip install -r ./backend/requirements.txt
 npm install
 
 # Start the application:
