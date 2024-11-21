@@ -5,6 +5,8 @@
 ## Introduction
 **Gesture** is a software that utilizes hand gesture detection using **Mediapipe**, which allows users to interact with their screen purely through the use of their hand signs. Users are capable of configuring their own options for what interaction each hand gesture will make. We utilized portions of the code from this [original repo](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe). Also some extra thanks to [this repo](https://github.com/kinivi/hand-gesture-recognition-mediapipe?tab=readme-ov-file) for translating to english. 
 
+Made by @ahaanbohra @bhinu @B-a-1-a @junw000
+
 ---
 
 ## Problem Statement
